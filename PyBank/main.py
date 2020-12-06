@@ -49,39 +49,55 @@ with open(csvpath) as csvfile:
         
 
     #The average of the changes in "Profit/Losses" over the entire period
-    #this would be net total / number of months
-    #average = net_amount/number_of_months
-    #that isn't right! it is some other formula
-
-    #i think this will give the value of y - 1 not the position y -1
-    #changes = 0
-    #for y in profit:
-       # changes = changes + (int(row{y+1) - int(y)
     
+    # Creating a list to hold the change in profit/loss between each set of months
     changes_list = []
 
+    #adding the difference between each pair of months in the profit list to the changes_list
     for i in range(number_of_months - 1):
         change = int(profit[i + 1]) - int(profit[i])
         changes_list.append(change)
 
+    #adding the values stored in changes_list
     added_changes = 0
     for y in changes_list:
         added_changes = added_changes + int(y)
 
+    #calculating the average
     average_changes = added_changes/(number_of_months - 1)
 
-    #print(f"{changes_list}")
-    print(f"{added_changes}")
-    print(f"{average_changes}")
 
-    #GOT IT!!!!!!!
-    #print(f"{changes}")
     #The greatest increase in profits (date and amount) over the entire period
-    # somehow finding biggest number in profits/losses column and identifying the date
+    # so finding the greatest profit b/w two months!!
+    #means i have to look at the changes_list list not the raw data in profit list!!
+    # then find date!!
+
+    #finding the largest increase in profits
+    max_number = max(changes_list)
+    print(f"{max_number}")
+
+    #finding the index of the largest increase in profits for the list of profits
+    max_index = changes_list.index(max_number)
+    print(f"{max_index}")
+
+    #finding the date for the greatest increase in profits.
+    #need to add 1 to the max_index because there is one less data point in changes_list
+    max_date = date[max_index + 1]
+    print(f"{max_date}")
 
 
     #The greatest decrease in losses (date and amount) over the entire period
-    # # somehow finding smallest number in profits/losses column and identifying the date
+    # # so finding the greatest loss b/w two months!!
+    #means i have to look at the changes_list list not the raw data in profit list!!
+    #then find date!
+
+    min_number = min(changes_list)
+    print(f"{min_number}")
+
+    min_index = changes_list.index(min_number)
+
+    min_date = date[min_index +1]
+    print(f"{min_date}")
 
 
     # want to both print report to the terminal and create text file with the results.
@@ -94,7 +110,9 @@ print("Financial Analysis")
 print("--------------------------")
 print(f"Total Months: {number_of_months}")
 print(f"Total: {'${}'.format(net_amount)}")
-#print(f"Average Change: {'${}'.format(average)}")
+print(f"Average Change: {'${}'.format(round(average_changes,2))}")
+print(f"Greatest Increase in Profits: {max_date} ({'${}'.format(max_number)})")
+print(f"Greatest Decrease in Profits: {min_date} ({'${}'.format(min_number)})")
 
 
 
