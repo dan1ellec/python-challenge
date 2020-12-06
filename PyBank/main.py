@@ -74,16 +74,13 @@ with open(csvpath) as csvfile:
 
     #finding the largest increase in profits
     max_number = max(changes_list)
-    print(f"{max_number}")
 
-    #finding the index of the largest increase in profits for the list of profits
+    #finding the index of the largest increase in profits within the list of profit changes
     max_index = changes_list.index(max_number)
-    print(f"{max_index}")
 
     #finding the date for the greatest increase in profits.
     #need to add 1 to the max_index because there is one less data point in changes_list
     max_date = date[max_index + 1]
-    print(f"{max_date}")
 
 
     #The greatest decrease in losses (date and amount) over the entire period
@@ -91,11 +88,15 @@ with open(csvpath) as csvfile:
     #means i have to look at the changes_list list not the raw data in profit list!!
     #then find date!
 
+    #finding the smallest increase in profits
     min_number = min(changes_list)
     print(f"{min_number}")
 
+    #finding the index of the smallest increase in profits within the list of profit changes
     min_index = changes_list.index(min_number)
 
+    #finding the date for the greatest decrease in profits.
+    #need to add 1 to the max_index because there is one less data point in changes_list
     min_date = date[min_index +1]
     print(f"{min_date}")
 
