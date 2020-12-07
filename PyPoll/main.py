@@ -57,13 +57,19 @@ with open(csvpath) as csvfile:
     candidates.append(candidate_votes[0])
     print(f"{candidates}")
 
-    for i in range(total_votes - 1):
-        for j in range(len(candidates)):
-            if (candidate_votes[i] != candidates[j]):
-                candidates.append(candidate_votes[i])
+    #for i in range(10):
+    #    for j in range(len(candidates)):
+    #        if (candidate_votes[i] != candidates[j]):
+    #            candidates.append(candidate_votes[i])
 
+    for i in candidate_votes:
+            if i not in candidates:
+                candidates.append(i)
+
+
+    candidates_length = len(candidates)
+    print(f"{candidates_length}")
     print(f"{candidates}")
-
 
 
     #The percentage of votes each candidate won
