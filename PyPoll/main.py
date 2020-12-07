@@ -45,13 +45,25 @@ with open(csvpath) as csvfile:
     total_county = len(county)
     total_candidate = len(candidate_votes)
 
-    print(f"{total_votes}")
-    print(f"{total_county}")
-    print(f"{total_candidate}")
+    #print(f"{total_votes}")
+    #print(f"{total_county}")
+    #print(f"{total_candidate}")
 
 
     #A complete list of candidates who received votes
     #so have to go through candidate votes and note every new person
+
+    candidates = []
+    candidates.append(candidate_votes[0])
+    print(f"{candidates}")
+
+    for i in range(total_votes - 1):
+        for j in range(len(candidates)):
+            if (candidate_votes[i] != candidates[j]):
+                candidates.append(candidate_votes[i])
+
+    print(f"{candidates}")
+
 
 
     #The percentage of votes each candidate won
