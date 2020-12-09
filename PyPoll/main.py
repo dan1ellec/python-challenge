@@ -38,8 +38,8 @@ with open(csvpath) as csvfile:
     #could be caluculated by counting any new list: 3521001
 
     total_votes = len(voter_id)
-    total_county = len(county)
-    total_candidate = len(candidate_votes)
+    #total_county = len(county)
+    #total_candidate = len(candidate_votes)
 
     #print(f"{total_votes}")
     #print(f"{total_county}")
@@ -50,8 +50,8 @@ with open(csvpath) as csvfile:
     #so have to go through candidate votes and note every new person
 
     candidates = []
-    candidates.append(candidate_votes[0])
-    print(f"{candidates}")
+    #candidates.append(candidate_votes[0])
+    #print(f"{candidates}")
 
     #for i in range(10):
     #    for j in range(len(candidates)):
@@ -63,7 +63,7 @@ with open(csvpath) as csvfile:
                 candidates.append(i)
 
 
-    candidates_length = len(candidates)
+    #candidates_length = len(candidates)
     #print(f"{candidates_length}")
     print(f"{candidates}")
 
@@ -74,43 +74,43 @@ with open(csvpath) as csvfile:
 
     #The total number of votes each candidate won
     
-    candidate_0_count = 0
+    #candidate_0_count = 0
     
     #for j in candidates:
-    for k in candidate_votes:
-        if candidates[0] == k:
-            candidate_0_count = candidate_0_count + 1
+    #for k in candidate_votes:
+    #    if candidates[0] == k:
+    #        candidate_0_count = candidate_0_count + 1
 
-    print(f"{candidate_0_count}")
+    #print(f"{candidate_0_count}")
 
-    candidate_1_count = 0
+    #candidate_1_count = 0
     
     #for j in candidates:
-    for k in candidate_votes:
-        if candidates[1] == k:
-            candidate_1_count = candidate_1_count + 1
+    #for k in candidate_votes:
+    #    if candidates[1] == k:
+    #        candidate_1_count = candidate_1_count + 1
 
-    print(f"{candidate_1_count}")
+    #print(f"{candidate_1_count}")
 
-    candidate_2_count = 0
+    #candidate_2_count = 0
     
     #for j in candidates:
-    for k in candidate_votes:
-        if candidates[2] == k:
-            candidate_2_count = candidate_2_count + 1
+    #for k in candidate_votes:
+    #    if candidates[2] == k:
+    #        candidate_2_count = candidate_2_count + 1
 
-    print(f"{candidate_2_count}")
+    #print(f"{candidate_2_count}")
 
-    candidate_3_count = 0
+    #candidate_3_count = 0
     
     #for j in candidates:
-    for k in candidate_votes:
-        if candidates[3] == k:
-            candidate_3_count = candidate_3_count + 1
+    #for k in candidate_votes:
+    #    if candidates[3] == k:
+    #        candidate_3_count = candidate_3_count + 1
 
-    print(f"{candidate_3_count}")
+    #print(f"{candidate_3_count}")
 
-    print(candidate_0_count + candidate_1_count + candidate_2_count + candidate_3_count)
+    #print(candidate_0_count + candidate_1_count + candidate_2_count + candidate_3_count)
 
     #maybe need to try with a list
 
@@ -133,8 +133,8 @@ with open(csvpath) as csvfile:
     #The percentage of votes each candidate won
     #Feel like it need to find the number first 
 
-    percentage_votes = [round((v/total_votes)*100, 5) for v in votes_per_candidate]
-    print(f"{percentage_votes}")
+    #percentage_votes = [round((v/total_votes)*100, 5) for v in votes_per_candidate]
+    #print(f"{percentage_votes}")
 
     percentage_votes = ["{:.3%}".format(v/total_votes) for v in votes_per_candidate]
     print(f"{percentage_votes}")
