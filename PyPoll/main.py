@@ -88,3 +88,25 @@ with open(csvpath) as csvfile:
     print("-------------------------")
     print(f"Winner: {winner}")
     print("-------------------------")
+
+
+    #printing to a text file
+    #creating a path to the textfile
+    output_file = os.path.join('Analysis','PyPoll_result.txt')
+
+    #creating and opening the textfile, then printing the output
+    with open(output_file, 'w') as textfile:
+    
+        textfile.write("Election Results\n")
+        textfile.write("-------------------------\n")
+        textfile.write(f"Total Votes: {total_votes}\n")
+        textfile.write("-------------------------\n")
+        votes_summary = zip(candidates, votes_per_candidate, percentage_votes)
+        for candidate, vote, percent in votes_summary:
+            textfile.write(f"{candidate}: {percent} ({vote})\n")
+        textfile.write("-------------------------\n")
+        textfile.write(f"Winner: {winner}\n")
+        textfile.write("-------------------------\n")
+        
+       
+
