@@ -144,6 +144,15 @@ with open(csvpath) as csvfile:
     #The winner of the election based on popular vote.   
 
 
+    #will need to zip three lists together to print and export
+    # have candidates, votes_per_candidate and percentage_votes
+    # all in order with corresponding index's
+
+    votes_summary = zip(candidates, votes_per_candidate, percentage_votes)
+
+    for candidate, vote, percent in votes_summary:
+        print(f"{candidate}: {percent} ({vote})")
+
 
 #Printing
 print("Election Results")
