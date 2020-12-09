@@ -84,15 +84,31 @@ with open(csvpath) as csvfile:
     min_date = date[min_index +1]
 
 
-#printing
+    #printing
 
-print("Financial Analysis")
-print("--------------------------")
-print(f"Total Months: {number_of_months}")
-print(f"Total: {'${}'.format(net_amount)}")
-print(f"Average Change: {'${}'.format(round(average_changes,2))}")
-print(f"Greatest Increase in Profits: {max_date} ({'${}'.format(max_number)})")
-print(f"Greatest Decrease in Profits: {min_date} ({'${}'.format(min_number)})")
+    print("Financial Analysis")
+    print("--------------------------")
+    print(f"Total Months: {number_of_months}")
+    print(f"Total: {'${}'.format(net_amount)}")
+    print(f"Average Change: {'${}'.format(round(average_changes,2))}")
+    print(f"Greatest Increase in Profits: {max_date} ({'${}'.format(max_number)})")
+    print(f"Greatest Decrease in Profits: {min_date} ({'${}'.format(min_number)})")
+
+
+    #printing to a text file
+    #creating a path to the textfile
+    output_file = os.path.join('Analysis','PyBank_result.txt')
+
+    #creating and opening the textfile, then printing the output
+    with open(output_file, 'w') as textfile:
+    
+        textfile.write("Financial Analysis\n")
+        textfile.write("--------------------------\n")
+        textfile.write(f"Total Months: {number_of_months}\n")
+        textfile.write(f"Total: {'${}'.format(net_amount)}\n")
+        textfile.write(f"Average Change: {'${}'.format(round(average_changes,2))}\n")
+        textfile.write(f"Greatest Increase in Profits: {max_date} ({'${}'.format(max_number)})\n")
+        textfile.write(f"Greatest Decrease in Profits: {min_date} ({'${}'.format(min_number)})\n")
 
 
 
