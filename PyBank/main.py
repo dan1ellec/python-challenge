@@ -2,19 +2,13 @@ import os
 
 import csv
 
-
-
 #path to collect data from the resources folder
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
 
-#creating some variables
-
+#creating lists
 date = []
 profit = []
-
-
-
 
 
 #reading using csv module
@@ -34,23 +28,20 @@ with open(csvpath) as csvfile:
         profit.append(row[1])
 
 
-    #The total number of months included in the dataset
-    #counting through the number of rows???
-
+    #the total number of months included in the dataset
     number_of_months = len(date)
 
     
-    #The net total amount of "Profit/Losses" over the entire period
-    #this would be adding up everything in the profit/losses column to see what the net profit or loss was
+    #the net total amount of "Profit/Losses" over the entire period
+    #adding up everything in the profit/losses column 
     net_amount = 0.00
    
     for x in profit:
         net_amount = net_amount + int(x)
         
 
-    #The average of the changes in "Profit/Losses" over the entire period
-    
-    # Creating a list to hold the change in profit/loss between each set of months
+    #the average of the changes in "Profit/Losses" over the entire period
+    #creating a list to hold the change in profit/loss between each set of months
     changes_list = []
 
     #adding the difference between each pair of months in the profit list to the changes_list
@@ -67,11 +58,8 @@ with open(csvpath) as csvfile:
     average_changes = added_changes/(number_of_months - 1)
 
 
-    #The greatest increase in profits (date and amount) over the entire period
-    # so finding the greatest profit b/w two months!!
-    #means i have to look at the changes_list list not the raw data in profit list!!
-    # then find date!!
-
+    #the greatest increase in profits (date and amount) over the entire period
+    #finding the greatest profit increase b/w two months, therefore consider changes_list
     #finding the largest increase in profits
     max_number = max(changes_list)
 
@@ -84,13 +72,9 @@ with open(csvpath) as csvfile:
 
 
     #The greatest decrease in losses (date and amount) over the entire period
-    # # so finding the greatest loss b/w two months!!
-    #means i have to look at the changes_list list not the raw data in profit list!!
-    #then find date!
-
+    #finding the greatest loss b/w two months, therefore consider changes_list
     #finding the smallest increase in profits
     min_number = min(changes_list)
-    print(f"{min_number}")
 
     #finding the index of the smallest increase in profits within the list of profit changes
     min_index = changes_list.index(min_number)
@@ -98,11 +82,6 @@ with open(csvpath) as csvfile:
     #finding the date for the greatest decrease in profits.
     #need to add 1 to the max_index because there is one less data point in changes_list
     min_date = date[min_index +1]
-    print(f"{min_date}")
-
-
-    # want to both print report to the terminal and create text file with the results.
-
 
 
 #printing
