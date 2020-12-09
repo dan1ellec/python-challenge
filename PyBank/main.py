@@ -110,23 +110,3 @@ with open(csvpath) as csvfile:
         textfile.write(f"Greatest Increase in Profits: {max_date} ({'${}'.format(max_number)})\n")
         textfile.write(f"Greatest Decrease in Profits: {min_date} ({'${}'.format(min_number)})\n")
 
-
-
-
-
-
-#to create a text file
-# will need to zip together all the results. so have results in lists??
-#then add that zipped thingo to the text file.
-#for the below I changed where it said csv in another example to text. 
-# not entirely sure if everything I changed is just a variable so will need to check.
-
-#bank_info = zip()
-
-#output_file = os.path.join('financial_result.txt')
-
-#with open(output_file, 'w') as textfile:
-    
-    #textwriter = text.writer(textfile)
-    
-    #textwriter.writerows(bank_info)
