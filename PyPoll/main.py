@@ -65,7 +65,7 @@ with open(csvpath) as csvfile:
 
     #candidates_length = len(candidates)
     #print(f"{candidates_length}")
-    print(f"{candidates}")
+    #print(f"{candidates}")
 
     #so candidate_votes contains all the votes for the candidates 
     # how many times their name is listed will be how many votes
@@ -126,7 +126,7 @@ with open(csvpath) as csvfile:
         votes = 0
     next 
 
-    print(f"{votes_per_candidate}")
+    #print(f"{votes_per_candidate}")
 
 
 
@@ -137,11 +137,15 @@ with open(csvpath) as csvfile:
     #print(f"{percentage_votes}")
 
     percentage_votes = ["{:.3%}".format(v/total_votes) for v in votes_per_candidate]
-    print(f"{percentage_votes}")
-    
+    #print(f"{percentage_votes}")
 
 
     #The winner of the election based on popular vote.   
+
+    #finding the index of the greatest votes
+    max_votes = max(votes_per_candidate)
+    max_index = votes_per_candidate.index(max_votes)
+    winner = candidates[max_index]
 
 
     #will need to zip three lists together to print and export
@@ -150,12 +154,14 @@ with open(csvpath) as csvfile:
 
     votes_summary = zip(candidates, votes_per_candidate, percentage_votes)
 
+
+    #Printing
+    print("Election Results")
+    print("-------------------------")
+    print(f"Total Votes: {total_votes}")
+    print("-------------------------")
     for candidate, vote, percent in votes_summary:
         print(f"{candidate}: {percent} ({vote})")
-
-
-#Printing
-print("Election Results")
-print("-------------------------")
-print(f"Total Votes: {total_votes}")
-print("-------------------------")
+    print("-------------------------")
+    print(f"Winner: {winner}")
+    print("-------------------------")
