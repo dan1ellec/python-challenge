@@ -2,15 +2,11 @@ import os
 
 import csv
 
-
-
 #path to collect data from the resources folder
 csvpath = os.path.join('Resources', 'election_data.csv')
 
-
 # Create individual lists for each column first
 # setting variables
-
 voter_id = []
 county = []
 candidate_votes = []
@@ -68,16 +64,12 @@ with open(csvpath) as csvfile:
 
 
     candidates_length = len(candidates)
-    print(f"{candidates_length}")
+    #print(f"{candidates_length}")
     print(f"{candidates}")
 
     #so candidate_votes contains all the votes for the candidates 
     # how many times their name is listed will be how many votes
     #candidates just has the four candidates
-
-    #The percentage of votes each candidate won
-    #Feel like it need to find the number first 
-
 
 
     #The total number of votes each candidate won
@@ -136,6 +128,17 @@ with open(csvpath) as csvfile:
 
     print(f"{votes_per_candidate}")
 
+
+
+    #The percentage of votes each candidate won
+    #Feel like it need to find the number first 
+
+    percentage_votes = [round((v/total_votes)*100, 5) for v in votes_per_candidate]
+    print(f"{percentage_votes}")
+
+    percentage_votes = ["{:.3%}".format(v/total_votes) for v in votes_per_candidate]
+    print(f"{percentage_votes}")
+    
 
 
     #The winner of the election based on popular vote.   
