@@ -71,11 +71,71 @@ with open(csvpath) as csvfile:
     print(f"{candidates_length}")
     print(f"{candidates}")
 
+    #so candidate_votes contains all the votes for the candidates 
+    # how many times their name is listed will be how many votes
+    #candidates just has the four candidates
 
     #The percentage of votes each candidate won
+    #Feel like it need to find the number first 
+
 
 
     #The total number of votes each candidate won
+    
+    candidate_0_count = 0
+    
+    #for j in candidates:
+    for k in candidate_votes:
+        if candidates[0] == k:
+            candidate_0_count = candidate_0_count + 1
+
+    print(f"{candidate_0_count}")
+
+    candidate_1_count = 0
+    
+    #for j in candidates:
+    for k in candidate_votes:
+        if candidates[1] == k:
+            candidate_1_count = candidate_1_count + 1
+
+    print(f"{candidate_1_count}")
+
+    candidate_2_count = 0
+    
+    #for j in candidates:
+    for k in candidate_votes:
+        if candidates[2] == k:
+            candidate_2_count = candidate_2_count + 1
+
+    print(f"{candidate_2_count}")
+
+    candidate_3_count = 0
+    
+    #for j in candidates:
+    for k in candidate_votes:
+        if candidates[3] == k:
+            candidate_3_count = candidate_3_count + 1
+
+    print(f"{candidate_3_count}")
+
+    print(candidate_0_count + candidate_1_count + candidate_2_count + candidate_3_count)
+
+    #maybe need to try with a list
+
+    votes_per_candidate = []
+    votes = 0
+
+    for j in candidates:
+        for k in candidate_votes:
+            if j == k:
+                votes = votes + 1
+        next 
+        votes_per_candidate.append(votes)
+        votes = 0
+    next 
+
+    print(f"{votes_per_candidate}")
+
 
 
     #The winner of the election based on popular vote.   
